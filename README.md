@@ -2,7 +2,7 @@
 Our public repository for the Crazyflie 2.0 nanoquadcopter from Bitcraze
 
 #### Crazyflie Custom Firmwares
-Contains three different custom firmwares for the Crazyflie 2.0, modified from the original version from Bitcraze found [here](https://github.com/bitcraze/crazyflie-firmware)
+Contains two different custom firmwares for the Crazyflie 2.0, modified from the original version from Bitcraze found [here](https://github.com/bitcraze/crazyflie-firmware)
 
 #### MATLAB Files
 Contains the MATLAB/Simulink files to simulate and implement the position/trajectory controllers for the Crazyflie 2.0
