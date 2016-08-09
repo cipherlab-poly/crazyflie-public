@@ -19,8 +19,7 @@ C_d = C;
 %Simulation Time definitions
 k0 = 0;
 tsim = 40;
-tsim_tra = tsim+5;
-kf = tsim_tra;
+kf = tsim;
 xk = [0;0;0;0;0;0;0;0;0;0;0;0]; %Initial Conditions for the states
 
 sim('Trajectory'); %File defines the trajectory for the LQT controller
@@ -34,7 +33,7 @@ F = Q;
 R = eye(4)*0.00003;
 
 %Matrices of LQT problem
-E = B_d*R^(-1)*B_d'; 
+E = B_d*R^(-1)*B_d';
 V = C'*Q*C;
 W = C'*Q;
 Pkplus1 = C'*F*C;
@@ -53,7 +52,8 @@ for k=N-Ts:-Ts:1
     i= i-1;
 end
 
-%Calculate Feedback coefficients L(k) and Lg(k)
+%Calculate Feedback coefficients L(k) and Lg(k), only taking first value of Pkplus1
+%To eliminate the gain variations at the end of the trajectory due to "free" state.
 i = length(N:-Ts:1);
 for k = N:-Ts:1
     Lk = (R+B_d'*Pkplus1*B_d)^(-1)*B_d'*Pkplus1*A_d;
@@ -66,9 +66,9 @@ end
 x = zeros(12,2999); %random number just to declare the variable
 x(:,1)=xk; % load initial conditions in the state vector
 
-%Compute the states with the feedback optimal controller 
+%Compute the states with the feedback optimal controller
 i=1;
-for k=1:Ts:N-Ts 
+for k=1:Ts:N-Ts
     Lk = L(:,:,i);
     Lgk = Lg(:,:,i);
     gkplus1 = g(:,:,i+1);
@@ -80,7 +80,7 @@ end
 
 %Compute g(k+1) and add final condition to the feedback coefficient
 i=1;
-for k=1:Ts:N-Ts 
+for k=1:Ts:N-Ts
     g1(:,:,i) = g(:,:,i+1);
     i=i+1;
 end
@@ -95,12 +95,12 @@ for k=1:Ts:N
     xk = x(:,i);
     U(:,:,i)=-Lk*xk + Lgk*gkplus1 + u';
     i=i+1;
-end  
+end
 
   g_pos = g1([1,2,3,7,8,9],:,:);
   L_pos = L(:,[1,2,3,7,8,9],:);
   Lg_pos = Lg(:,[1,2,3,7,8,9],:);
-  
+
   L_ang = L(:,[4,5,6,10,11,12],:);
   g_ang = g1([4,5,6,10,11,12],:,:);
   Lg_ang = Lg(:,[4,5,6,10,11,12],:);
@@ -149,7 +149,7 @@ Ki_LQT = [Ki_coef  -Ki_coef   -Ki_coefz
          -Ki_coef  -Ki_coef   -Ki_coefz
          -Ki_coef   Ki_coef   -Ki_coefz
           Ki_coef   Ki_coef   -Ki_coefz];
-      
+
 Ki_coef_ang = 8660.3;
 
 Ki = [-Ki_coef_ang  -Ki_coef_ang   -Ki_coef_ang
@@ -159,7 +159,7 @@ Ki = [-Ki_coef_ang  -Ki_coef_ang   -Ki_coef_ang
 
 
 % Kalman Filter for position and linear velocity
-% State Space Model of the system 
+% State Space Model of the system
 
 A_kal = [1 0 0 Ts 0 0
          0 1 0 0 Ts 0
@@ -171,7 +171,7 @@ A_kal = [1 0 0 Ts 0 0
 C_kal = [1 0 0 0 0 0
          0 1 0 0 0 0
          0 0 1 0 0 0];
-     
+
 G_kal =[Ts/2  0     0
          0   Ts/2   0
          0    0    Ts/2
