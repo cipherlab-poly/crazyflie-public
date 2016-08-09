@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: crazyflie_controller
+Description: Description of crazyflie_controller
+Version: 0.0.1
+Cflags: 
+Libs: -L/usr/local/lib 
+Requires: 

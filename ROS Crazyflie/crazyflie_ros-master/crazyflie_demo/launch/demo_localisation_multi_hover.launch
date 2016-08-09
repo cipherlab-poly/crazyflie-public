@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="uri" default="radio://0/80/250K/E7E7E7E701" />
+  <arg name="joy_dev" default="/dev/input/js0" />
+  
+  <arg name="x" default="2.5" />
+  <arg name="y" default="1.5" />
+  <arg name="z" default="0.5" />
+
+  <include file="$(find crazyflie_driver)/launch/crazyflie_server.launch">
+  </include>
+
+  <group ns="crazyflie">
+    <!--<param name="crazyflie/pid_rate/yaw_kp" value="200"/>-->
+    <include file="$(find crazyflie_driver)/launch/crazyflie_add.launch">
+      <arg name="uri" value="$(arg uri)" />
+      <arg name="tf_prefix" value="crazyflie" />
+      <arg name="enable_logging" value="True" />
+    </include>
+
+  	<node name="joy" pkg="joy" type="joy_node" output="screen" >
+    	<param name="dev" value="$(arg joy_dev)" />
+  	</node>
+
+ 	<node name="joystick_controller" pkg="crazyflie_demo" type="controller.py" output="screen">
+      <param name="use_crazyflie_controller" value="True" />
+    </node>
+    
+    <node name="log" pkg="loc_project" type="test_log.py" output="screen">
+    </node>
+    
+    <node name="pub_pos_crazyflie" pkg="crazyflie_demo" type="pub_pos_crazyflie.py" output="screen">
+    </node>
+    
+ 	
+ 	<include file="$(find crazyflie_controller)/launch/crazyflie2_2.launch">
+    </include>
+    
+    <node name="pose" pkg="crazyflie_demo" type="publish_pose.py" output="screen">
+      <param name="name" value="goal" />
+      <param name="rate" value="30" />
+      <param name="x" value="$(arg x)" />
+      <param name="y" value="$(arg y)" />
+      <param name="z" value="$(arg z)" />
+    </node>
+    
+    <param name="robot_description" command="$(find xacro)/xacro.py $(find crazyflie_description)/urdf/crazyflie.urdf.xacro" />
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+    <!--node name="rviz" pkg="rviz" type="rviz" args="-d $(find crazyflie_description)/launch/crazyflie.rviz" required="true" /-->
+   
+  </group>
+</launch>

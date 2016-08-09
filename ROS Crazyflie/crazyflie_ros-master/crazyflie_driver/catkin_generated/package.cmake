@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "crazyflie_driver")
+set(crazyflie_driver_MAINTAINER "Wolfgang Hoenig <whoenig@usc.edu>")
+set(crazyflie_driver_DEPRECATED "")
+set(crazyflie_driver_VERSION "0.0.1")
+set(crazyflie_driver_BUILD_DEPENDS "message_generation" "std_msgs" "tf" "geometry_msgs")
+set(crazyflie_driver_RUN_DEPENDS "message_runtime" "std_msgs" "tf" "geometry_msgs")
+set(crazyflie_driver_BUILDTOOL_DEPENDS "catkin")

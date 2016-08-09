@@ -1,0 +1,12 @@
+<launch>
+	<!-- run vicon bridge -->
+	<node pkg="vicon_bridge" type="vicon_bridge" name="vicon" output="screen">
+		<param name="stream_mode" value="ClientPull" type="str" />
+		<param name="datastream_hostport" value="132.207.24.6:801"
+				type="str" />
+		<param name="tf_ref_frame_id" value="/world" type="str" />
+	</node>
+	<!-- run vicon listener -->
+	<node pkg="vicon_bridge" type="vicon_listener" name="vicon_listener" output="screen"></node>
+	<node pkg="tf" type="static_transform_publisher" name="vicon_pos" args="6.16 2.48 0.0 0.0 0.0 0.0 /navigation_frame /world 100" />
+</launch>

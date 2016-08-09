@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "crazyflie_demo")
+set(crazyflie_demo_MAINTAINER "Wolfgang Hoenig <whoenig@usc.edu>")
+set(crazyflie_demo_DEPRECATED "")
+set(crazyflie_demo_VERSION "0.0.1")
+set(crazyflie_demo_BUILD_DEPENDS )
+set(crazyflie_demo_RUN_DEPENDS )
+set(crazyflie_demo_BUILDTOOL_DEPENDS "catkin")

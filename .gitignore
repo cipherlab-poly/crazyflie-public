@@ -1,0 +1,17 @@
+build_info.json
+
+^bin/dep/all
+bin/*
+.cproject
+.project
+.settings/*
+*~
+tools/make/config.mk
+cflie.*
+version.c
+
+cf2.*
+/cf1.*
+*.gch
+*.pyc
+/generated-test/**

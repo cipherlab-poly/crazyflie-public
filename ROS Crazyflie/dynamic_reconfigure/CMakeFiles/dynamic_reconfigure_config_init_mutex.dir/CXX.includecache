@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/carlosluis/catkin_ws/src/dynamic_reconfigure/src/dynamic_reconfigure_config_init_mutex.cpp
+dynamic_reconfigure/config_init_mutex.h
+-
+
+dynamic_reconfigure/include/dynamic_reconfigure/config_init_mutex.h
+boost/thread/mutex.hpp
+-
+

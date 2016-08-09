@@ -1,0 +1,8 @@
+set(_CATKIN_CURRENT_PACKAGE "dynamic_reconfigure")
+set(dynamic_reconfigure_VERSION "1.5.39")
+set(dynamic_reconfigure_MAINTAINER "Esteve Fernandez <esteve@osrfoundation.org>")
+set(dynamic_reconfigure_BUILD_DEPENDS "boost" "message_generation" "roscpp" "roscpp_serialization" "rostest" "std_msgs")
+set(dynamic_reconfigure_RUN_DEPENDS "boost" "message_runtime" "roscpp" "roslib" "rospy" "rosservice" "std_msgs")
+set(dynamic_reconfigure_DEPRECATED "")
+set(dynamic_reconfigure_BUILDTOOL_DEPENDS "catkin")
+set(dynamic_reconfigure_BUILDTOOL_DEPENDS_catkin_VERSION_GTE "0.5.87")
