@@ -10,9 +10,9 @@ Contains the MATLAB/Simulink files to simulate and implement the position/trajec
 #### ROS Crazyflie
 Contains the different ROS packages used in the project.
 
-Watch our Youtube Video showing the different parts of the project
-
 #### Docs
 In the folder you will find the complete technical report of the project, with detailed explanations of the mathematical model of the quadcopter, how the simulation was built, experimental results and comparisons, etc.
 
-[![Everything Is AWESOME](http://imgur.com/ylcETtS.png)](https://www.youtube.com/watch?v=SPCusxFJVLA "Everything Is AWESOME")
+Watch our Youtube Video showing the different parts of the project:
+
+[![Project Video](http://imgur.com/ylcETtS.png)](https://www.youtube.com/watch?v=SPCusxFJVLA "Project Video")
