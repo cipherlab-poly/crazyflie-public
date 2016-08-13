@@ -15,4 +15,4 @@ In the folder you will find the complete technical report of the project, with d
 
 Watch our Youtube Video showing the different parts of the project:
 
-[![Project Video](http://imgur.com/ylcETtS.png)](https://www.youtube.com/watch?v=SPCusxFJVLA "Project Video")
+[![Project Video](http://imgur.com/ylcETtS.png)](https://youtu.be/c-SXovCyhJQ "Project Video")
