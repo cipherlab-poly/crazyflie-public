@@ -16,3 +16,7 @@ In the folder you will find the complete technical report of the project, with d
 Watch our Youtube Video showing the different parts of the project:
 
 [![Project Video](http://imgur.com/ylcETtS.png)](https://youtu.be/c-SXovCyhJQ "Project Video")
+
+If you use this repository in research work to be published, please cite:
+
+C. Luis and J. Le Ny, "Design of a Trajectory Tracking Controller for a Nanoquadcopter”, Technical report, Mobile Robotics and Autonomous Systems Laboratory, Polytechnique Montreal, August, 2016.
